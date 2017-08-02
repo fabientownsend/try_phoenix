@@ -1,0 +1,10 @@
+<div class="jumbotron">
+  <h2>Teams:</h2>
+
+  <ul>
+  <%= for team <- @teams do %>
+    <li><%= link(team.name, to: "/teams/#{team.id}") %></li>
+  <% end %>
+  </ul>
+
+</div>
