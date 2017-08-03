@@ -22,6 +22,7 @@ defmodule HelloWeb.Router do
     post "/teams", TeamsController, :create
     #put "/teams", TeamsController, :edit
     get "/teams/:id/members", TeamsController, :members
+    get "/teams/:id/add/:user_id", TeamsController, :add_user
     #get "/teams/:id/patients", TeamsController, :show
 
     #get "/patients", PatientController, :index

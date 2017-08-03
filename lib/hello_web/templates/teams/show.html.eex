@@ -4,7 +4,11 @@
   <h3>Application users</h3>
   <ul>
   <%= for user <- @application_users do %>
-    <li><%= user.id%>: <%= user.name %></li>
+    <li>
+        <%= user.id%>: <%= user.name %>
+        <%= link("add", to: "/teams/#{@team_id}/add/#{user.id}") %>
+    </li>
+
   <% end %>
   </ul>
 
