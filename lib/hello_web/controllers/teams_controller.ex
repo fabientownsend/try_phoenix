@@ -5,7 +5,6 @@ defmodule HelloWeb.TeamsController do
 
   def index(conn, _params) do
     changeset = Team.changeset(%Team{})
-
     teams = Repo.all(Team)
     render(conn, "index.html", teams: teams, changeset: changeset)
   end
@@ -19,9 +18,9 @@ defmodule HelloWeb.TeamsController do
     render(conn, "index.html", teams: teams, changeset: changeset)
   end
 
-  def show(conn, %{"id" => id}) do
+  def members(conn, %{"id" => id}) do
     team = Repo.get(Team, id) |> Repo.preload(:users)
-    users_name = Enum.map(team.users, fn x -> x end)
-    render conn, "show.html", team_members: users_name
+    team_users = Enum.map(team.users, fn x -> x end)
+    render conn, "show.html", team_members: team_users
   end
 end

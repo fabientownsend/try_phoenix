@@ -20,10 +20,9 @@ defmodule HelloWeb.Router do
 
     get "/teams", TeamsController, :index
     post "/teams", TeamsController, :create
-    get "/teams/:id", TeamsController, :show # id could be name
-    #get "/teams/:id/members", TeamsController, :show
+    #put "/teams", TeamsController, :edit
+    get "/teams/:id/members", TeamsController, :members
     #get "/teams/:id/patients", TeamsController, :show
-    #put "/teams", TeamsController, :create #pop up
 
     #get "/patients", PatientController, :index
     #post "/patient", PatientController, :index #create patient

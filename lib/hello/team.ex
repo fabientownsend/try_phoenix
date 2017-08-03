@@ -27,7 +27,7 @@ defmodule Hello.Team do
   end
 
   @doc false
-  def changeset(%Team{} = team, attrs) do
+  def changeset(%Team{} = team, attrs \\ %{}) do
     team
     |> cast(attrs, [:name])
     |> validate_required([:name])

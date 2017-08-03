@@ -13,7 +13,7 @@
 
   <ul>
   <%= for team <- @teams do %>
-    <li><%= link(team.name, to: "/teams/#{team.id}") %></li>
+    <li><%= link(team.name, to: "/teams/#{team.id}/members") %></li>
   <% end %>
   </ul>
 
