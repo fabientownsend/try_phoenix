@@ -4,8 +4,19 @@ defmodule HelloWeb.TeamsController do
   alias Hello.Repo
 
   def index(conn, _params) do
+    changeset = Team.changeset(%Team{})
+
     teams = Repo.all(Team)
-    render conn, "index.html", teams: teams
+    render(conn, "index.html", teams: teams, changeset: changeset)
+  end
+
+  def create(conn, %{"team" => team}) do
+    Team.changeset(%Team{}, team)
+    |> Repo.insert!
+
+    changeset = Team.changeset(%Team{})
+    teams = Repo.all(Team)
+    render(conn, "index.html", teams: teams, changeset: changeset)
   end
 
   def show(conn, %{"id" => id}) do
