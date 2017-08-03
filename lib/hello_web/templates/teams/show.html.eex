@@ -1,6 +1,14 @@
 <div class="jumbotron">
   <h2>Team Members</h2>
 
+  <h3>Application users</h3>
+  <ul>
+  <%= for user <- @application_users do %>
+    <li><%= user.id%>: <%= user.name %></li>
+  <% end %>
+  </ul>
+
+  <h3>Team members</h3>
   <ul>
   <%= for member <- @team_members do %>
     <li><%= member.name %></li>
